@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "aba02679c0ae3048",
+    "type": "split",
+    "children": [
+      {
+        "id": "4eecc5a8ac1d4d81",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "226b4a94305b6e1c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01-Negocio/Procesos.md.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Procesos.md"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "894e22751ce2d1f1",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f295a0dbc2cb72c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "75a7b1749384ee4f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "869e29a90667925e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "a83839c94a993dac",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5
+  },
+  "right": {
+    "id": "6622e4db06f6b4de",
+    "type": "split",
+    "children": [
+      {
+        "id": "30c98a29d98dccad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "daa468a324043693",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01-Negocio/Procesos.md.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de Procesos.md"
+            }
+          },
+          {
+            "id": "3056ade669de871c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes"
+            }
+          },
+          {
+            "id": "032afbd8fdf93f32",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "0f4134d424d5ea06",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "f2dd73fadfbcea0a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "226b4a94305b6e1c",
+  "lastOpenFiles": [
+    "01-Negocio/ReglasNegocio.md",
+    "01-Negocio/ModulosFunciones.md",
+    "01-Negocio/Procesos.md.md",
+    "01-Negocio/Roles.md.md",
+    "Bitacora/Diario.md",
+    "Bienvenido.md",
+    "Sin título.md",
+    "Vidriera 1.xlsx",
+    "~$Vidriera.xlsx",
+    "Vidriera.xlsx",
+    "01-Negocio/TiposProductosTrabajos.md",
+    "00-Proyecto/Vision.md.md",
+    "00-Proyecto/Roadmap.md.md",
+    "00-Proyecto/Objetivos.md.md",
+    "Bitacora/ArquitecturaGeneral.md",
+    "05-Diagramas/UML.md",
+    "05-Diagramas/ArquitecturaGeneral.md",
+    "05-Diagramas/Procesos.md",
+    "04-BaseDatos/Diagramas.md",
+    "04-BaseDatos/ArquitecturaGeneral.md",
+    "04-BaseDatos/Entidades.md",
+    "04-BaseDatos/ModeloConceptual.md",
+    "03-Arquitectura/Integraciones.md",
+    "03-Arquitectura/ArquitecturaGeneral - copia.md",
+    "03-Arquitectura/Mobile.md",
+    "03-Arquitectura/Backend.md",
+    "03-Arquitectura/Frontend.md",
+    "03-Arquitectura/ArquitecturaGeneral.md",
+    "03-Arquitectura/Invantario.md",
+    "Bitacora",
+    "05-Diagramas",
+    "04-BaseDatos",
+    "03-Arquitectura",
+    "02-Requerimientos",
+    "01-Negocio",
+    "00-Proyecto"
+  ]
+}
