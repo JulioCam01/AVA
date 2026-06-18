@@ -11,15 +11,15 @@ R= Si, utilizar Supabase Storage
 ## Catálogo de Cotización
 
 **P2-COT-01**
-R= Tengo propuestas del nuevo logotipo, pero eso se puede configurar despues. la paletas de colores, logotipo. 
+R= Tengo propuestas del nuevo logotipo, pero eso se puede configurar después. la paletas de colores, logotipo. 
 
 
 **P2-COT-02**
-R= debe de existir la opcion de reactivar, para respetar el precio original.
+R= debe de existir la opción de reactivar, para respetar el precio original.
 
 
 **P2-COT-03**
-R= Si, que se agrupen las distintas cotizaciones, del mismo trabajo. Y dependiendo cual acepte el cliente, se cambie como status aceptada la cotizacion seleccionada.
+R= Si, que se agrupen las distintas cotizaciones, del mismo trabajo. Y dependiendo cual acepte el cliente, se cambie como status aceptada la cotización seleccionada.
 
 
 ## Fabricación / Despiece
@@ -29,11 +29,11 @@ R= Si, para el MVP se puede desarrollar manualmente las formulas que ya se tiene
 
 
 **P2-FAB-02**
-R= Todavia no cuento con las formulas de despiece, de las puertas domos etc. Por ahora se puede quedar asi, realizar el mvp con las ventanas corredizas. y despues podemos diseñar el modulo de creacion de formulas. 
+R= Todavía no cuento con las formulas de despiece, de las puertas domos etc. Por ahora se puede quedar asi, realizar el mvp con las ventanas corredizas. y después podemos diseñar el modulo de creación de formulas. 
 
 
 **P2-FAB-03**
-R= la opcion A: "reserve" el material inmediatamente y lo descuente definitivamente solo cuando la tarea se marca como terminada
+R= la opción A: "reserve" el material inmediatamente y lo descuente definitivamente solo cuando la tarea se marca como terminada
 
 
 ## Producción y Rentabilidad
@@ -84,7 +84,10 @@ Así respondes la pregunta P2-INS-02: no es "siempre reutilizable" ni "siempre s
 ## Caso especial — Material apartado
 
 **P2-INV-01**
-R= 
+R= Si, en el inventario se agregar un estado, para marcar los materiales como (disponible, apartado, etc,) si es apartado agregar un campo de relacion de trabajo.
+Respondiendo a la pregunta, si el trabajador cometió un error, se pueda realizar un ajuste o marcar en la base de datos, si se tomo perfiles nuevos o usados.
+
+
 
 
 

@@ -4,21 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "4eecc5a8ac1d4d81",
+        "id": "097cf60d5c0f2ca8",
         "type": "tabs",
         "children": [
           {
-            "id": "226b4a94305b6e1c",
+            "id": "13c61e0c8cc70d25",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Negocio/Procesos.md.md",
+                "file": "Cuestionario-Respuestas/AVA_Consolidacion_Fase2_Cuestionario_Fase3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Procesos.md"
+              "title": "AVA_Consolidacion_Fase2_Cuestionario_Fase3"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d5d77b2f286ca0d0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8286b6aefd834d8b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cuestionario-Respuestas/AVA_Respuestas_Cuestionario_Analisis_Fase3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AVA_Respuestas_Cuestionario_Analisis_Fase3"
             }
           }
         ]
@@ -78,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5
+    "width": 449.5,
+    "collapsed": true
   },
   "right": {
     "id": "6622e4db06f6b4de",
@@ -181,13 +202,20 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "226b4a94305b6e1c",
+  "active": "8286b6aefd834d8b",
   "lastOpenFiles": [
+    "Cuestionario-Respuestas/AVA_Consolidacion_Fase2_Cuestionario_Fase3.md",
+    "Cuestionario-Respuestas/AVA_Respuestas_Cuestionario_Analisis_Fase3.md",
+    "Cuestionario-Respuestas/AVA_Respuestas_Segunda_Ronda_Preguntas_Fase1.md",
+    "Cuestionario-Respuestas/AVA_Validacion_Consolidacion_Requisitos_Fase1.md",
+    "Cuestionario-Respuestas/AVA_Respuestas_Segunda_Ronda_Preguntas_Fase1 1.md",
+    "Cuestionario-Respuestas/AVA_Respuestas_Cuestionario_Analisis_Fase0.md",
+    "Cuestionario-Respuestas/AVA_Analisis_Descubrimiento_Requisitos_Fases_0_y_1.md",
+    "Bitacora/Diario.md",
+    "01-Negocio/Procesos.md.md",
     "01-Negocio/ReglasNegocio.md",
     "01-Negocio/ModulosFunciones.md",
-    "01-Negocio/Procesos.md.md",
     "01-Negocio/Roles.md.md",
-    "Bitacora/Diario.md",
     "Bienvenido.md",
     "Sin título.md",
     "Vidriera 1.xlsx",
@@ -205,13 +233,6 @@
     "04-BaseDatos/ArquitecturaGeneral.md",
     "04-BaseDatos/Entidades.md",
     "04-BaseDatos/ModeloConceptual.md",
-    "03-Arquitectura/Integraciones.md",
-    "03-Arquitectura/ArquitecturaGeneral - copia.md",
-    "03-Arquitectura/Mobile.md",
-    "03-Arquitectura/Backend.md",
-    "03-Arquitectura/Frontend.md",
-    "03-Arquitectura/ArquitecturaGeneral.md",
-    "03-Arquitectura/Invantario.md",
     "Bitacora",
     "05-Diagramas",
     "04-BaseDatos",
