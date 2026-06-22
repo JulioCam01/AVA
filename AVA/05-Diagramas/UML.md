@@ -1,0 +1,239 @@
+# Diagramas UML — AVA
+
+## Casos de Uso por Rol
+
+### SuperAdmin
+```
+┌─────────────────────────────────────────────────────┐
+│                     <<sistema>>                       │
+│                        AVA                            │
+│                                                       │
+│  ○ Gestionar usuarios (crear, editar, desactivar)    │
+│  ○ Asignar rol SuperAdmin                            │
+│  ○ Configurar precios de mano de obra               │
+│  ○ Configurar fórmulas de despiece (V2)             │
+│  ○ Ver todos los reportes (incluyendo rentabilidad) │
+│  ○ + todo lo que puede el Administrador             │
+│                                                       │
+└─────────────────────────────────────────────────────┘
+                          ↑
+                   (SuperAdmin)
+```
+
+### Administrador
+```
+┌─────────────────────────────────────────────────────┐
+│                     <<sistema>>                       │
+│                        AVA                            │
+│                                                       │
+│  ○ Gestionar clientes y prospectos                  │
+│  ○ Gestionar proveedores                            │
+│  ○ Gestionar catálogo de productos y precios        │
+│  ○ Crear y aprobar cotizaciones                     │
+│  ○ Aplicar descuentos en cotizaciones               │
+│  ○ Reactivar cotizaciones vencidas                  │
+│  ○ Ver costos internos (mano de obra, viáticos)     │
+│  ○ Generar y enviar PDF de cotización               │
+│  ○ Calcular despiece                                │
+│  ○ Crear órdenes de compra                         │
+│  ○ Gestionar inventario                             │
+│  ○ Crear y asignar tareas                          │
+│  ○ Cancelar tareas y eventos del calendario         │
+│  ○ Gestionar agenda/calendario                      │
+│  ○ Registrar cobros (anticipo, parciales, final)    │
+│  ○ Registrar devoluciones                           │
+│  ○ Control de caja                                  │
+│  ○ Ver reportes de ventas                           │
+│  ○ Ver reportes de rentabilidad                     │
+│  ○ Resetear contraseñas de usuarios                 │
+│                                                       │
+└─────────────────────────────────────────────────────┘
+                          ↑
+                  (Administrador)
+```
+
+### Secretaria
+```
+┌─────────────────────────────────────────────────────┐
+│                     <<sistema>>                       │
+│                        AVA                            │
+│                                                       │
+│  ○ Gestionar clientes y prospectos                  │
+│  ○ Gestionar proveedores                            │
+│  ○ Crear cotizaciones (sin aprobar ni descuentos)   │
+│  ○ Entregar cotizaciones al cliente                 │
+│  ○ Reactivar cotizaciones vencidas                  │
+│  ○ Generar y enviar PDF de cotización               │
+│  ○ Crear órdenes de compra                         │
+│  ○ Recibir material de proveedores                 │
+│  ○ Ver inventario                                   │
+│  ○ Registrar cobros de clientes                    │
+│  ○ Control de caja (inicio y fin de turno)         │
+│  ○ Gestionar agenda/calendario (sin cancelar)       │
+│                                                       │
+│  NO PUEDE:                                           │
+│  ✗ Aprobar cotizaciones                             │
+│  ✗ Aplicar descuentos                               │
+│  ✗ Ver costos internos de mano de obra             │
+│  ✗ Ver reportes de rentabilidad                     │
+│  ✗ Cancelar tareas o eventos                        │
+│  ✗ Gestionar usuarios                               │
+│                                                       │
+└─────────────────────────────────────────────────────┘
+                          ↑
+                   (Secretaria)
+```
+
+### Trabajador
+```
+┌─────────────────────────────────────────────────────┐
+│                     <<sistema>>                       │
+│                        AVA (app móvil)                │
+│                                                       │
+│  ○ Ver mis tareas asignadas                         │
+│  ○ Actualizar estado de mis tareas                  │
+│    (pendiente → en proceso → terminado)             │
+│  ○ Ver medidas y especificaciones del trabajo       │
+│  ○ Ver nombre y domicilio del cliente (para instalar)│
+│  ○ Ver calendario de eventos asignados a mí        │
+│  ○ Subir fotografías de trabajos/instalaciones      │
+│                                                       │
+│  NO PUEDE:                                           │
+│  ✗ Ver tareas de otros trabajadores                 │
+│  ✗ Ver cotizaciones, precios o pagos                │
+│  ✗ Ver inventario                                   │
+│  ✗ Crear ni modificar tareas, eventos o cualquier   │
+│    otro registro del sistema                        │
+│                                                       │
+└─────────────────────────────────────────────────────┘
+                          ↑
+                  (Trabajador)
+```
+
+---
+
+## Diagrama de Secuencia — Crear y Aceptar Cotización
+
+```
+Secretaria    Sistema Web    API Backend    PostgreSQL    Trabajador App
+    │               │              │              │              │
+    │──nueva cot.──►│              │              │              │
+    │               │──POST /api/cotizaciones────►│              │
+    │               │              │──INSERT──────►              │
+    │               │◄─────────────────────────────              │
+    │◄──cotización borrador─────────│              │              │
+    │                              │              │              │
+    │──[Jefe aprueba]──────────────►              │              │
+    │               │──POST /api/cotizaciones/[id]/aprobar───────►
+    │               │              │──UPDATE estado=aprobada──────►
+    │               │◄──ok──────────────────────────────          │
+    │◄──estado: aprobada────────────│              │              │
+    │                              │              │              │
+    │──[Cliente acepta]────────────►              │              │
+    │               │──POST /api/cotizaciones/[id]/aceptar──────►
+    │               │              │──UPDATE cotizacion aprobada─►
+    │               │              │──UPDATE otras del grupo:     │
+    │               │              │   no_aceptada               │
+    │               │              │──INSERT orden_trabajo────────►
+    │               │              │──UPDATE cliente tipo=cliente─►
+    │               │◄──ok──────────────────────────────          │
+    │◄──orden de trabajo creada─────│              │              │
+    │                              │              │              │
+    │──registra anticipo────────────►              │              │
+    │               │──POST /api/pagos────────────►              │
+    │               │              │──INSERT pago─►              │
+    │               │◄──ok──────────────────────────              │
+    │                              │              │              │
+    │──asigna tarea──────────────────►            │              │
+    │               │──POST /api/tareas──────────►              │
+    │               │              │──INSERT tarea►              │
+    │               │              │──UPDATE inv: apartado───────►
+    │               │              │──PUSH notification───────────────────────►
+    │               │◄──ok──────────────────────────              │
+    │◄──tarea creada y notificada───│              │              │
+    │                              │              │    [recibe push notification]
+    │                              │              │◄──marca en proceso──────────│
+    │                              │              │◄──marca terminada───────────│
+    │               │              │──UPDATE inv: consumido──────►              │
+    │               │              │──PUSH notification al Admin─►              │
+    │◄──notif. tarea terminada─────────────────────              │              │
+```
+
+---
+
+## Diagrama de Estados — Inventario de Perfiles de Aluminio
+
+```
+┌──────────────────────────────────────────────────────────┐
+│                                                            │
+│   [Alta desde Orden de Compra]                            │
+│              │                                             │
+│              ▼                                             │
+│      ┌───────────────┐                                     │
+│      │  DISPONIBLE   │ ◄──────────────────────────────┐   │
+│      └───────┬───────┘                                 │   │
+│              │                                         │   │
+│      Tarea asignada (checkbox=nuevo)                   │   │
+│              │                                         │   │
+│              ▼                                         │   │
+│      ┌───────────────┐      Tarea cancelada            │   │
+│      │   APARTADO    │ ─────────────────────────────►  │   │
+│      │ (vinculado a  │                                 │   │
+│      │ orden_trabajo)│                                 │   │
+│      └───────┬───────┘                                 │   │
+│              │                                         │   │
+│      Tarea marcada como terminada                      │   │
+│              │                                         │   │
+│              ▼                                         │   │
+│      ┌───────────────┐                                 │   │
+│      │   CONSUMIDO   │  (descuento definitivo)         │   │
+│      └───────────────┘                                 │   │
+│                                                            │
+│   [Ajuste manual por Admin]                               │
+│   Cualquier estado puede ser ajustado manualmente         │
+│   → Queda registrado en audit_log                         │
+│                                                            │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Diagrama de Clases Simplificado (Entidades Principales)
+
+```
+┌────────────────────┐     N:1     ┌─────────────────┐
+│    Cotizacion      │────────────►│ GrupoCotizacion  │
+├────────────────────┤             └─────────────────┘
+│ estado             │
+│ fecha_vencimiento  │     1:N     ┌─────────────────────┐
+│ precio_snapshot    │────────────►│  CotizacionDetalle   │
+│ [campos domicilio] │             ├─────────────────────┤
+│ [campos internos]  │             │ precio_unitario_snap │
+└────────┬───────────┘             │ costo_mano_obra      │
+         │                        │ costo_viaticos       │
+         │ 1:1                    └──────────┬──────────┘
+         ▼                                   │ 1:1 (si fabricado)
+┌────────────────────┐                       ▼
+│  OrdenTrabajo      │             ┌─────────────────────┐
+├────────────────────┤             │  DespieceCalculo    │
+│ estado             │             ├─────────────────────┤
+└────────┬───────────┘             │ tipo_producto       │
+         │                        │ usa_pedaceria        │
+         │ 1:N                    │ ancho, alto, hojas   │
+         ▼                        └──────────┬──────────┘
+┌────────────────────┐                       │ 1:N
+│     Tarea          │                       ▼
+├────────────────────┤             ┌─────────────────────┐
+│ tipo_tarea         │             │  DespieceDetalle    │
+│ estado             │             ├─────────────────────┤
+└────────┬───────────┘             │ perfil_nombre       │
+         │                        │ longitud_cm          │
+         │ N:M                    │ cantidad_piezas      │
+         ▼                        └─────────────────────┘
+┌────────────────────┐
+│  TareaTrabajador   │
+├────────────────────┤
+│ trabajador_id      │
+│ descripcion_asig.  │
+└────────────────────┘
+```
